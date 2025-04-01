@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý sản phẩm</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/subject-manager.css">
+</head>
+<body>
+  <div class="manager-page">
+    <aside class="sidebar">
+      <h3>Quản trị</h3>
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="category-manager.html">Quản lý môn học</a></li>
+        <li><a href="#">Quản lý sản phẩm</a></li>
+      </ul>
+    </aside>
+    <main class="main-content">
+      <header class="header">
+        <h2>Quản lý sản phẩm</h2>
+        <form id="add-product-form">
+          <input type="text" id="product-input" placeholder="Tên sản phẩm mới" required>
+          <button type="submit">Thêm</button>
+        </form>
+        <input type="text" id="search-input" placeholder="Tìm kiếm sản phẩm...">
+      </header>
+      <ul id="product-list"></ul>
+      <div id="pagination"></div>
+    </main>
+  </div>
+  <script src="../js/subject-manager.js"></script>
+</body>
+</html>

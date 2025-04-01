@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản lý môn học</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/category-manager.css">
+</head>
+<body>
+  <div class="manager-page">
+    <aside class="sidebar">
+      <div class="logo">📚 Study Tracker</div>
+      <p class="sub">Quản lý tiến độ học tập</p>
+      <ul>
+        <li><a href="#">📊 Thống kê</a></li>
+        <li class="active"><a href="#">📘 Quản lý môn học</a></li>
+        <li><a href="#">📖 Quản lý bài học</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <header class="top-bar">
+        <h2>Môn học</h2>
+        <div class="actions">
+          <select id="filter-status">
+            <option value="all">Lọc theo trạng thái</option>
+            <option value="active">Đang hoạt động</option>
+            <option value="inactive">Ngừng hoạt động</option>
+          </select>
+          <button id="open-modal">Thêm mới môn học</button>
+        </div>
+      </header>
+
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Tìm kiếm môn học theo tên...">
+      </div>
+
+      <table class="subject-table">
+        <thead>
+          <tr>
+            <th>Tên môn học</th>
+            <th>Trạng thái</th>
+            <th>Chức năng</th>
+          </tr>
+        </thead>
+        <tbody id="category-list"></tbody>
+      </table>
+
+      <div class="pagination" id="pagination"></div>
+    </main>
+  </div>
+
+  <!-- Modal thêm / sửa -->
+  <div class="modal" id="subject-modal">
+    <div class="modal-content">
+      <span class="close" id="close-modal">&times;</span>
+      <h3 id="modal-title">Thêm mới môn học</h3>
+      <form id="subject-form">
+        <label>Tên môn học</label>
+        <input type="text" id="subject-name" required>
+        <div class="form-group">
+          <label>Trạng thái</label>
+          <label><input type="radio" name="status" value="active" checked> Đang hoạt động</label>
+          <label><input type="radio" name="status" value="inactive"> Ngừng hoạt động</label>
+        </div>
+        <div class="modal-actions">
+          <button type="button" id="cancel-btn">Hủy</button>
+          <button type="submit" id="save-btn">Thêm</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/category-manager.js"></script>
+</body>
+</html>
