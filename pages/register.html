@@ -3,26 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <title>Đăng ký</title>
-  <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/register.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/register.css">
 </head>
 <body>
   <div class="register-container">
     <h2>Đăng ký tài khoản</h2>
-    <form>
+    <p>Đăng ký tài khoản để sử dụng dịch vụ</p>
+    <form id="register-form">
       <div class="row">
-        <input type="text" placeholder="Họ và tên đệm">
-        <input type="text" placeholder="Tên">
+        <div class="input-group">
+          <label for="lastname">Họ và tên đệm</label>
+          <input type="text" id="lastname" >
+        </div>
+        <div class="input-group">
+          <label for="firstname">Tên</label>
+          <input type="text" id="firstname" >
+        </div>
       </div>
-      <input type="email" placeholder="you@company.com">
-      <input type="password" placeholder="Mật khẩu">
+
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" >
+      </div>
+
+      <div class="input-group">
+        <label for="password">Mật khẩu</label>
+        <input type="password" id="password" >
+      </div>
+
+      <div class="input-group">
+        <label for="confirm-password">Xác nhận mật khẩu</label>
+        <input type="password" id="confirm-password" >
+      </div>
+
       <label class="terms">
-        <input type="checkbox"> Đồng ý với <a href="#">chính sách và điều khoản</a>
+        <input type="checkbox" id="agree" >
+        Bạn đồng ý với <a href="">chính sách và điều khoản</a>
       </label>
+
       <button type="submit">Đăng ký</button>
       <p>Bạn đã có tài khoản? <a href="login.html">Đăng nhập</a></p>
     </form>
   </div>
+
   <script src="/js/register.js"></script>
 </body>
 </html>

@@ -1,66 +1,137 @@
 body {
-    margin: 0;
-    background-color: #f2f4f8;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.register-container {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 460px;
+  margin: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+h2 + p {
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+input.invalid {
+  border-color: #e74c3c;
+  outline: none;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: 4px;
+  line-height: 1.2;
+}
+
+.terms {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.terms input {
+  margin: 0;
+}
+
+button {
+  padding: 12px;
+  background-color: #3366ff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+button:hover {
+  background-color: #254eda;
+}
+
+p {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #3366ff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
   .register-container {
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    width: 450px;
+    padding: 24px;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    min-height: 100vh;
   }
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 24px;
-  }
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+
   .row {
-    display: flex;
-    gap: 10px;
+    flex-direction: column;
   }
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    flex: 1;
-  }
-  .terms {
-    font-size: 14px;
-  }
+
+  input,
   button {
-    padding: 12px;
-    background-color: #3366ff;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: bold;
+    font-size: 15px;
   }
-  button:hover {
-    background-color: #254eda;
+
+  h2 {
+    font-size: 22px;
   }
-  p {
-    text-align: center;
-    margin-top: 15px;
-    font-size: 14px;
+
+  h2 + p {
+    font-size: 13px;
   }
-  a {
-    text-decoration: none;
-    color: #3366ff;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-  
+}

@@ -2,33 +2,133 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Quản lý sản phẩm</title>
+  <title>Quản lý bài học</title>
   <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/subject-manager.css">
+  <link rel="stylesheet" href="/css/subject-manager.css">
 </head>
 <body>
   <div class="manager-page">
     <aside class="sidebar">
-      <h3>Quản trị</h3>
+      <div class="logo">📚 Study Tracker</div>
+      <p class="sub">Quản lý tiến độ học tập</p>
       <ul>
-        <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="category-manager.html">Quản lý môn học</a></li>
-        <li><a href="#">Quản lý sản phẩm</a></li>
+        <li><a href="#"><img src="/assets/icons/thongke.png" alt=""> Thống kê</a></li>
+        <li><a href="category-manager.html"><img src="/assets/icons/Notebook.png" alt=""> Quản lý môn học</a></li>
+        <li class="active"><a href=""><img src="/assets/icons/baihoc.png" alt=""> Quản lý bài học</a></li>
       </ul>
     </aside>
+
     <main class="main-content">
-      <header class="header">
-        <h2>Quản lý sản phẩm</h2>
-        <form id="add-product-form">
-          <input type="text" id="product-input" placeholder="Tên sản phẩm mới" required>
-          <button type="submit">Thêm</button>
-        </form>
-        <input type="text" id="search-input" placeholder="Tìm kiếm sản phẩm...">
+      <div class="top-bar-top">
+        <div class="top-bar-top-left">
+          <img src="/assets/icons/View grid.png" alt="grid">
+        </div>
+        <div class="top-bar-right">
+          <img src="/assets/icons/Bell.png" alt="">
+          <img src="/assets/icons/Cog settings.png" alt="">
+          <img src="/assets/icons/Question mark circle.png" alt="">
+          <img src="/assets/icons/Avatar w. photo.png" id="login-icon" alt="User Avatar">
+        </div>
+      </div>
+      <header class="top-bar-bottom">
+        <h2>Bài học</h2>
+        <div class="actions">
+          <select id="filter-subject">
+            <option value="all">Tất cả môn học</option>
+            <option value="1">Lập trình C</option>
+            <option value="2">Lập trình Frontend với ReactJS</option>
+            <option value="3">Lập trình Backend với Spring boot</option>
+          </select>
+          <button id="open-modal">Thêm mới bài học</button>
+        </div>
       </header>
-      <ul id="product-list"></ul>
-      <div id="pagination"></div>
+
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Tìm kiếm bài học theo tên...">
+      </div>
+
+      <table class="subject-table">
+        <thead>
+          <tr>
+            <th><input type="checkbox"></th>
+            <th>Tên bài học  <img src="/assets/icons/down.png"></th>
+            <th>Thời gian học  <img src="/assets/icons/down.png"> </th>
+            <th>Trạng thái</th>
+            <th>Chức năng</th>
+          </tr>
+        </thead>
+        <tbody id="category-list">
+          <!-- Data will be dynamically inserted here by JS -->
+        </tbody>
+      </table>
+
+      <div class="pagination" id="pagination">
+        <!-- Pagination buttons will appear here -->
+      </div>
     </main>
   </div>
-  <script src="../js/subject-manager.js"></script>
+
+  <!-- Modal Thêm Mới Bài Học -->
+  <div id="subject-create-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span id="close-create-modal" class="close">×</span>
+      <h2 id="modal-title">Thêm mới bài học</h2>
+      <form id="subject-form-create">
+        <input type="text" id="subject-name" placeholder="Tên bài học" />
+        <select id="subject-category">
+          <option value="" disabled selected>Chọn môn học</option>
+          <option value="1">Lập trình C</option>
+          <option value="2">Lập trình Frontend với ReactJS</option>
+          <option value="3">Lập trình Backend với Spring boot</option>
+        </select>
+        <input type="number" id="subject-time" placeholder="Thời gian học (phút)" />
+        <button type="submit" id="save-btn">Thêm</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Cập nhật Bài Học -->
+  <div id="subject-update-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <span id="close-update-modal" class="close">×</span>
+      <h2 id="modal-title">Cập nhật bài học</h2>
+      <form id="subject-form-update">
+        <input type="text" id="subject-name-update" placeholder="Tên bài học" />
+        <select id="subject-category">
+          <option value="" disabled selected>Chọn môn học</option>
+          <option value="1">Lập trình C</option>
+          <option value="2">Lập trình Frontend với ReactJS</option>
+          <option value="3">Lập trình Backend với Spring boot</option>
+        </select>
+        <input type="number" id="subject-time-update" placeholder="Thời gian học (phút)" />
+        <button type="submit" id="save-btn-update">Lưu</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal xác nhận xóa -->
+  <div class="modal" id="confirm-modal" style="display: none;">
+    <div class="modal-content">
+      <p id="confirm-message">Bạn có chắc muốn xóa bài học này?</p>
+      <div class="modal-actions">
+        <button id="confirm-cancel">Hủy</button>
+        <button id="confirm-delete" style="background-color: red; color: white;">Xóa</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications -->
+  <div id="toast" class="toast hidden">
+    <div class="toast-content">
+      <span class="toast-icon"><img src="/assets/icons/check_circle.png" alt=""></span>
+      <div class="toast-text">
+        <strong id="toast-title">Thành công</strong>
+        <div id="toast-message">Xử lý thành công</div>
+      </div>
+      <button class="toast-close" onclick="hideToast()">✕</button>
+    </div>
+  </div>
+
+  <script src="/js/subject-manager.js"></script>
 </body>
 </html>

@@ -4,32 +4,49 @@
   <meta charset="UTF-8">
   <title>Quản lý môn học</title>
   <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/category-manager.css">
+  <link rel="stylesheet" href="/css/category-manager.css">
 </head>
 <body>
+
   <div class="manager-page">
     <aside class="sidebar">
       <div class="logo">📚 Study Tracker</div>
       <p class="sub">Quản lý tiến độ học tập</p>
       <ul>
-        <li><a href="#">📊 Thống kê</a></li>
-        <li class="active"><a href="#">📘 Quản lý môn học</a></li>
-        <li><a href="#">📖 Quản lý bài học</a></li>
+        <li><a href="dashboard.html"><img src="/assets/icons/thongke.png" alt=""> Thống kê</a></li>
+        <li class="active"><a href="category-manager.html"><img src="/assets/icons/Notebook.png" alt=""> Quản lý môn học</a></li>
+        <li ><a  href="subject-manager.html"><img src="/assets/icons/baihoc.png" alt=""> Quản lý bài học</a></li>
       </ul>
     </aside>
-
+    
     <main class="main-content">
-      <header class="top-bar">
-        <h2>Môn học</h2>
-        <div class="actions">
-          <select id="filter-status">
-            <option value="all">Lọc theo trạng thái</option>
-            <option value="active">Đang hoạt động</option>
-            <option value="inactive">Ngừng hoạt động</option>
-          </select>
-          <button id="open-modal">Thêm mới môn học</button>
+      <div class="top-bar-top">
+        <div class="top-bar-top-left">
+          <img src="/assets/icons/View grid.png" alt="grid">
         </div>
-      </header>
+        <div class="top-bar-right"></div>
+        <img src="/assets/icons/Bell.png" alt="">
+        <img src="/assets/icons/Cog settings.png" alt="">
+        <img src="/assets/icons/Question mark circle.png" alt="">
+        <img src="/assets/icons/Avatar w. photo.png" id="login-icon" alt="User Avatar">
+      </div>
+      <div class="top-bar-bottom">
+        <div class="top-bar-left">
+          <h2>Môn học</h2>
+        </div>
+      
+        <div class="top-bar-right">
+          <div class="actions">
+            <select id="filter-status">
+              <option value="all">Lọc theo trạng thái</option>
+              <option value="active">Đang hoạt động</option>
+              <option value="inactive">Ngừng hoạt động</option>
+            </select>
+            <button id="open-modal">Thêm mới môn học</button>
+          </div>
+          
+        </div>
+      </div>
 
       <div class="search-box">
         <input type="text" id="search-input" placeholder="Tìm kiếm môn học theo tên...">
@@ -38,15 +55,82 @@
       <table class="subject-table">
         <thead>
           <tr>
-            <th>Tên môn học</th>
+            <th>Tên môn học <img src="/assets/icons/down.png" alt=""></th>
             <th>Trạng thái</th>
             <th>Chức năng</th>
           </tr>
         </thead>
-        <tbody id="category-list"></tbody>
+        <tbody id="category-list">
+          <!-- <tr>
+            <td>Lập trình C</td>
+            <td><span class="status active">Đang hoạt động</span></td>
+            <td>
+              <button class="action-btn delete"><img src="/assets/icons/thungrac.png" alt="delete"></button>
+              <button class="action-btn edit"><img src="/assets/icons/sua.png" alt="edit"></button>
+            </td>
+          </tr>
+          <tr>
+            <td>Lập trình Frontend với ReactJS</td>
+            <td><span class="status inactive">Ngừng hoạt động</span></td>
+            <td>
+              <button class="action-btn delete"><img src="/assets/icons/thungrac.png" alt="delete"></button>
+              <button class="action-btn edit"><img src="/assets/icons/sua.png" alt="edit"></button>
+            </td>
+          </tr>
+          <tr>
+            <td>Lập trình Backend với Spring boot</td>
+            <td><span class="status active">Đang hoạt động</span></td>
+            <td>
+              <button class="action-btn delete"><img src="/assets/icons/thungrac.png" alt="delete"></button>
+              <button class="action-btn edit"><img src="/assets/icons/sua.png" alt="edit"></button>
+            </td>
+          </tr>
+          <tr>
+            <td>Lập trình Frontend với VueJS</td>
+            <td><span class="status inactive">Ngừng hoạt động</span></td>
+            <td>
+              <button class="action-btn delete"><img src="/assets/icons/thungrac.png" alt="delete"></button>
+              <button class="action-btn edit"><img src="/assets/icons/sua.png" alt="edit"></button>
+            </td>
+          </tr>
+          <tr>
+            <td>Cấu trúc dữ liệu và giải thuật</td>
+            <td><span class="status inactive">Ngừng hoạt động</span></td>
+            <td>
+              <button class="action-btn delete"><img src="/assets/icons/thungrac.png" alt="delete"></button>
+              <button class="action-btn edit"><img src="/assets/icons/sua.png" alt="edit"></button>
+            </td>
+          </tr>
+          <tr>
+            <td>Phân tích và thiết kế hệ thống</td>
+            <td><span class="status active">Đang hoạt động</span></td>
+            <td>
+              <button class="action-btn delete"><img src="/assets/icons/thungrac.png" alt="delete"></button>
+              <button class="action-btn edit"><img src="/assets/icons/sua.png" alt="edit"></button>
+            </td>
+          </tr>
+          <tr>
+            <td>Toán cao cấp</td>
+            <td><span class="status inactive">Ngừng hoạt động</span></td>
+            <td>
+              <button class="action-btn delete"><img src="/assets/icons/thungrac.png" alt="delete"></button>
+              <button class="action-btn edit"><img src="/assets/icons/sua.png" alt="edit"></button>
+            </td>
+          </tr>
+          <tr>
+            <td>Tiếng Anh chuyên ngành</td>
+            <td><span class="status active">Đang hoạt động</span></td>
+            <td>
+              <button class="action-btn delete"><img src="/assets/icons/thungrac.png" alt="delete"></button>
+              <button class="action-btn edit"><img src="/assets/icons/sua.png" alt="edit"></button>
+            </td>
+          </tr> -->
+        </tbody>
+
       </table>
 
       <div class="pagination" id="pagination"></div>
+
     </main>
   </div>
 
@@ -71,6 +155,54 @@
     </div>
   </div>
 
-  <script src="../js/category-manager.js"></script>
+<!-- Modal thêm / sửa -->
+<div class="modal" id="subject-modal">
+  <div class="modal-content">
+    <span class="close" id="close-modal">&times;</span>
+    <h3 id="modal-title">Thêm mới môn học</h3>
+    <form id="subject-form">
+      <label>Tên môn học</label>
+      <input type="text" id="subject-name" required>
+      <div class="form-group">
+        <label>Trạng thái</label>
+        <label><input type="radio" name="status" value="active" checked> Đang hoạt động</label>
+        <label><input type="radio" name="status" value="inactive"> Ngừng hoạt động</label>
+      </div>
+      <div class="modal-actions">
+        <button type="button" id="cancel-btn">Hủy</button>
+        <button type="submit" id="save-btn">Thêm</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<!-- Modal xác nhận xóa -->
+<div class="modal" id="confirm-modal">
+  <div class="modal-content">
+    <p id="confirm-message">Bạn có chắc muốn xóa?</p>
+    <div class="modal-actions">
+      <button id="confirm-cancel">Hủy</button>
+      <button id="confirm-delete" style="background-color: red; color: white;">Xóa</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast hidden">
+  <div class="toast-content">
+    <span class="toast-icon"><img src="/assets/icons/check_circle.png" alt=""></span>
+    <div class="toast-text">
+      <strong id="toast-title">Thành công</strong>
+      <div id="toast-message">Xử lý thành công</div>
+    </div>
+    <button class="toast-close" onclick="hideToast()">✕</button>
+  </div>
+</div>
+
+<script src="/js/category-manager.js"></script>
+
+
+
 </body>
 </html>
